@@ -24,7 +24,7 @@ type Props = {
 };
 
 const config = {
-  apiKey: "294c2ea6ba387ac233f3036a16f0a6fd",
+  apiKey: "06a3141b4c209e325489ad494a01fea8",
   experienceKey: "advisor-testimonials",
   locale: "en",
   experienceVersion: "PRODUCTION",
@@ -61,7 +61,8 @@ const AdvisorReviews = ({ className, advisorName }: Props) => {
             "opacity-50": loading,
           })}
         >
-          Showing {vertical.results?.length} of {vertical.resultsCount} testimonials
+          Showing {vertical.results?.length} of {vertical.resultsCount}{" "}
+          testimonials
         </div>
 
         <VerticalResults
