@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 type testimonialSubmission = {
   entity: {
@@ -17,32 +17,36 @@ type testimonialSubmission = {
   invitationUid?: string;
 };
 
-
-export const sendTestimonialToFunction = (testimonial: testimonialSubmission) => {
+export const sendTestimonialToFunction = (
+  testimonial: testimonialSubmission
+) => {
   // Get curent date as YYYY-MM-DD
-  const reviewDate = new Date().toISOString().split('T')[0];
+  const reviewDate = new Date().toISOString().split("T")[0];
   const reviewTitleDate = new Date().toISOString();
 
-  const data = { ...testimonial};
+  const data = { ...testimonial };
 
-  console.log('Posting Following Review', data);
-  return axios.get ('https://gains-lather-catatonic.pgsdemo.com/serverless/createTestimonial', {
-    params: {
-      author: testimonial.authorName,
-      authorEmail: testimonial.authorEmail,
-      content: testimonial.content,
-      label1: testimonial.label1,
-      currentClient: testimonial.currentClient,
-      label2: testimonial.label2,
-      conflictDetails: testimonial.conflictDetails,
-      label3: testimonial.label3,
-      compensationDetails: testimonial.compensationDetails,
-      locationId: testimonial.entity.id,
-      rating: testimonial.rating,
-      date: reviewDate,
-      date2: reviewTitleDate
-    },
-  });
+  console.log("Posting Following Review", data);
+  return axios.get(
+    "https://unscrew-mayday-overall.pgsdemo.com/serverless/createTestimonial",
+    {
+      params: {
+        author: testimonial.authorName,
+        authorEmail: testimonial.authorEmail,
+        content: testimonial.content,
+        label1: testimonial.label1,
+        currentClient: testimonial.currentClient,
+        label2: testimonial.label2,
+        conflictDetails: testimonial.conflictDetails,
+        label3: testimonial.label3,
+        compensationDetails: testimonial.compensationDetails,
+        locationId: testimonial.entity.id,
+        rating: testimonial.rating,
+        date: reviewDate,
+        date2: reviewTitleDate,
+      },
+    }
+  );
 };
 
 export default sendTestimonialToFunction;
