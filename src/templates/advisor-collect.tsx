@@ -103,7 +103,7 @@ const AdvisorCollectPage: Template<TemplateRenderProps> = ({
         <div className="w-full mt-10">
           <div className="w-3/4	mx-auto px-4 flex mb-10">
             <div style={{ flexBasis: "65%" }}>
-              <h1 className="text-2xl font-medium mb-8">
+              <h1 className="text-2xl font-medium mb-8 headColor">
                 Leave a testimonial for {c_advisorName}
               </h1>
               <ReviewGenForm advisorId={id} defaultExpanded />

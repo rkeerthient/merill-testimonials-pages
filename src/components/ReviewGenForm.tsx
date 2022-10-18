@@ -46,7 +46,7 @@ const ReviewGenForm = ({
             className="flex justify-between items-center hover:bg-gray-200 p-4"
             type="button"
           >
-            <h3 className=" font-medium">Write a Testimonial</h3>
+            <h3 className=" font-medium headColor">Write a Testimonial</h3>
             <div className="flex gap-2 items-center">
               {!expanded && <Stars stars={5} />}
               <FaChevronRight
