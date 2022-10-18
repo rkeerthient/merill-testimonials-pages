@@ -26,7 +26,7 @@ const StarInput = ({
     <div className={cx(className)}>
       <div className="group flex w-full flex-col">
         {label && (
-          <label className="text-xs uppercase tracking-wider text-gray-500">
+          <label className="text-xs uppercase tracking-wider font-light headColor">
             {label}
           </label>
         )}

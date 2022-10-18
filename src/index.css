@@ -17,3 +17,7 @@
 .secondary-cta {
   @apply bg-sky-700 hover:bg-sky-800;
 }
+
+.headColor {
+  color: #012169;
+}

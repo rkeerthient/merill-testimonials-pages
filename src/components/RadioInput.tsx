@@ -19,7 +19,7 @@ const RadioInput = ({ className, name, label, options }: Props) => {
   return (
     <div className={cx(className)}>
       {label && (
-        <label className="text-xs uppercase tracking-wider text-gray-500">
+        <label className="text-xs uppercase tracking-wider  font-light headColor">
           {label}
         </label>
       )}

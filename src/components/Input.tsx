@@ -38,7 +38,7 @@ export const Input = ({
     <div className={cx(className)}>
       <div className="group flex w-full flex-col">
         {label && (
-          <label className="text-xs uppercase tracking-wider text-gray-500">
+          <label className="text-xs uppercase font-light headColor">
             {label}
           </label>
         )}

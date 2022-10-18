@@ -104,7 +104,7 @@ const ReviewGenForm = ({
               }}
               saveButtonLabel="Submit Testimonial"
               disclosure={
-                <div className="text-gray-500 text-sm">
+                <div className="headColor font-light text-sm">
                   <p>
                     By clicking submit, you agree to our review policy, privacy
                     policy and terms and conditions
@@ -117,7 +117,7 @@ const ReviewGenForm = ({
                 </div>
               }
             >
-              <StarInput name="rating" label="Stars" />
+              {/* <StarInput name="rating" label="Stars" /> */}
               <TextArea
                 name="content"
                 label="Your Testimonial"
