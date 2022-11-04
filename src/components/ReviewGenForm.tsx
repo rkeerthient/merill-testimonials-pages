@@ -87,8 +87,6 @@ const ReviewGenForm = ({
                   currentClient = "Yes";
                 }
 
-                console.log(label1, label2, label3);
-
                 await sendTestimonialToFunction({
                   ...rest,
                   entity: {
@@ -117,8 +115,8 @@ const ReviewGenForm = ({
                 </div>
               }
             >
-              {/* <StarInput name="rating" label="Stars" /> */}
               <TextArea
+                required
                 name="content"
                 label="Your Testimonial"
                 placeholder="Be specific. Share useful information about your relationship with this finacial advisor to help other people learn more about them."
@@ -165,17 +163,24 @@ const ReviewGenForm = ({
                 textAreaOpenValue="YES"
               />
               <Input
+                required
                 name="authorEmail"
                 label="Your email (never shared publicly)"
                 placeholder="Used only to contact you and confirm your relationship to this financial advisor"
-                required
               />
               <Input
+                required
                 name="authorName"
                 label="Your Name (publicaly displayed with your testimonial)"
                 placeholder="Summarize your testimonial or highlight an interesting detail"
-                required
               />
+              <div className="flex gap-3">
+                <input type="checkbox" id="consent" name="consent" required />
+                <label htmlFor="consent">
+                  By selecting this box, I provide electronic consent to use
+                  this information for promotional purposes
+                </label>
+              </div>
             </Form>
           </div>
         </div>

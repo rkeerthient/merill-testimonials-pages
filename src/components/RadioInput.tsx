@@ -26,6 +26,7 @@ const RadioInput = ({ className, name, label, options }: Props) => {
       {options.map((o) => (
         <div className="flex gap-2 items-center headColor" key={o.value}>
           <input
+            required
             {...register(name, { required: true })}
             type="radio"
             value={o.value}

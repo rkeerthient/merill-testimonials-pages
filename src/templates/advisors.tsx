@@ -29,6 +29,10 @@ export const config = {
       "c_reviewCollectionSlug",
       "ref_reviewsAgg.averageRating",
       "c_headshot",
+      "c_clientFocuses",
+      "c_language",
+      "c_experience",
+      "c_licensesAndCertifications",
       "c_testimonials.id",
       "c_testimonials.c_author",
       "c_testimonials.c_rating",
@@ -79,9 +83,13 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
     c_averageRating,
     c_numberOfReviews,
     description,
+    c_experience,
     c_reviewCollectionPage,
     ref_reviewsAgg,
     c_headshot,
+    c_clientFocuses,
+    c_language,
+    c_licensesAndCertifications,
   } = document;
 
   const AdditionDetails = (
@@ -92,8 +100,6 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
       </a>
     </div>
   );
-
-  console.log(JSON.stringify(c_testimonials));
 
   return (
     <>
@@ -157,18 +163,22 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
                 style={{ borderBottom: ".0625rem solid #80a8ea" }}
               >
                 <div className="mr-4" style={{ flexBasis: "33.33333%" }}>
-                  <div className="mb-3.5">
-                    <h2 className="mb-3.5 text-2xl leading-5	 font-light headColor">
-                      Experience
-                    </h2>
-                    <div>7 years</div>
-                  </div>
+                  {
+                    <div className="mb-3.5">
+                      <h2 className="mb-3.5 text-2xl leading-5	 font-light headColor">
+                        Experience
+                      </h2>
+                      <div>{c_experience && c_experience}</div>
+                    </div>
+                  }
                   <div className="mb-3.5">
                     <h2 className="mb-3.5 text-2xl leading-5	 font-light headColor">
                       Degree
                     </h2>
-                    <div>Rutgers University, Bachelor's Degree</div>
-                    <div>Rutgers University, Bachelor's Degree</div>
+                    {c_language &&
+                      c_language.map((item: any, index: number) => (
+                        <div key={index}>{item}</div>
+                      ))}
                   </div>
                   <div className="mb-3.5">
                     <h2 className="mb-3.5 text-2xl leading-5	 font-light headColor">
@@ -182,15 +192,21 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
                   <h2 className="mb-3.5 text-2xl leading-5	 font-light headColor">
                     Client Focuses
                   </h2>
-                  <div>English</div>
-                  <div>Spanish</div>
+                  {c_clientFocuses &&
+                    c_clientFocuses.map((item: any, index: number) => (
+                      <div key={index}>{item}</div>
+                    ))}
                 </div>
                 <div style={{ flexBasis: "33.33333%" }}>
                   <h2 className="mb-3.5 text-2xl leading-7 font-light headColor">
                     Licenses and Certifications
                   </h2>
-                  <div>English</div>
-                  <div>Spanish</div>
+                  {c_licensesAndCertifications &&
+                    c_licensesAndCertifications.map(
+                      (item: any, index: number) => (
+                        <div key={index}>{item}</div>
+                      )
+                    )}
                 </div>
               </div>
               <div className="mb-10">
@@ -202,50 +218,54 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
                 {c_testimonials &&
                   c_testimonials.map((item: any, index: number) => {
                     return (
-                      <div
-                        className="flex flex-col gap-2 border rounded-sm p-4 mb-4"
-                        key={index}
-                      >
-                        <div className="flex gap-4">
-                          <div>{item.c_reviewDate}</div>
-                        </div>
-                        <div>{item.c_content}</div>
-                        <div>
-                          <div className="text-gray-500 italic">
-                            {item.c_author}
-                          </div>
-                        </div>
-                        {(item.c_conflictDetails ||
-                          item.c_compensationDetails ||
-                          item.c_currentClient) && (
-                          <div className="text-sm border-t pt-4">
-                            {item.c_currentClient && (
-                              <div>
-                                <span className="font-medium text-gray-500">
-                                  Current Client:{" "}
-                                </span>
-                                {item.c_currentClient}
+                      <>
+                        {item.c_status === "LIVE" && (
+                          <div
+                            className="flex flex-col gap-2 border rounded-sm p-4 mb-4"
+                            key={index}
+                          >
+                            <div className="flex gap-4">
+                              <div>{item.c_reviewDate}</div>
+                            </div>
+                            <div>{item.c_content}</div>
+                            <div>
+                              <div className="text-gray-500 italic">
+                                {item.c_author}
                               </div>
-                            )}
-                            {item.c_conflictDetails && (
-                              <div>
-                                <span className="font-medium text-gray-500">
-                                  Conflict Details :{" "}
-                                </span>
-                                {item.c_conflictDetails}
-                              </div>
-                            )}
-                            {item.c_compensationDetails && (
-                              <div>
-                                <span className="font-medium text-gray-500">
-                                  Compensation:{" "}
-                                </span>
-                                {item.c_compensationDetails}
+                            </div>
+                            {(item.c_conflictDetails ||
+                              item.c_compensationDetails ||
+                              item.c_currentClient) && (
+                              <div className="text-sm border-t pt-4">
+                                {item.c_currentClient && (
+                                  <div>
+                                    <span className="font-medium text-gray-500">
+                                      Current Client:{" "}
+                                    </span>
+                                    {item.c_currentClient}
+                                  </div>
+                                )}
+                                {item.c_conflictDetails && (
+                                  <div>
+                                    <span className="font-medium text-gray-500">
+                                      Conflict Details :{" "}
+                                    </span>
+                                    {item.c_conflictDetails}
+                                  </div>
+                                )}
+                                {item.c_compensationDetails && (
+                                  <div>
+                                    <span className="font-medium text-gray-500">
+                                      Compensation:{" "}
+                                    </span>
+                                    {item.c_compensationDetails}
+                                  </div>
+                                )}
                               </div>
                             )}
                           </div>
                         )}
-                      </div>
+                      </>
                     );
                   })}
               </div>
