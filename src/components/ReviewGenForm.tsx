@@ -174,7 +174,7 @@ const ReviewGenForm = ({
                 label="Your Name (publicaly displayed with your testimonial)"
                 placeholder="Summarize your testimonial or highlight an interesting detail"
               />
-              <div className="flex gap-3">
+              <div className="flex gap-3 font-light headColor">
                 <input type="checkbox" id="consent" name="consent" required />
                 <label htmlFor="consent">
                   By selecting this box, I provide electronic consent to use
