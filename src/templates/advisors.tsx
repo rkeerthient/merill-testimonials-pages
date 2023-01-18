@@ -107,7 +107,6 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
     c_advisorIntents,
   } = document;
   const [openTab, setOpenTab] = useState(0);
-  console.log(JSON.stringify(c_advisorIntents));
 
   const AdditionDetails = (
     <div>

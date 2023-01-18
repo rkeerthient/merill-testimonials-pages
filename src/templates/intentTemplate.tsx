@@ -30,6 +30,7 @@ export const config = {
       "mainPhone",
       "services",
       "id",
+      "slug",
     ],
     filter: {
       entityTypes: ["ce_intentPage"],
@@ -42,7 +43,7 @@ export const config = {
 };
 
 export const getPath: GetPath<TemplateProps> = (props) => {
-  return props.document.name;
+  return props.document.slug;
 };
 
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (
@@ -71,6 +72,7 @@ const IntentPage: Template<TemplateRenderProps> = ({
     headshot,
     mainPhone,
     services,
+    slug,
     id,
   } = document;
 

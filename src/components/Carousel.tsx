@@ -5,7 +5,6 @@ import "slick-carousel/slick/slick-theme.css";
 
 const Carousel = (props: any) => {
   const { data } = props;
-  console.log(JSON.stringify(data));
 
   const settings = {
     dots: false,
