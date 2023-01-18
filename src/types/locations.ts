@@ -27,6 +27,58 @@ export interface Hours {
   reopenDate?: string;
 }
 
+export enum Category {
+  BOOK_TRAVEL = "Book Travel",
+  CHECK_IN = "Check in",
+  FEES_POLICIES = "Fees Policies",
+  FLIGHT_STATUS = "Flight Status",
+  TICKETS = "Tickets",
+  TICKETING = "Ticketing",
+  AMENITIES = "Amenities",
+  FRONT_DESK = "Front Desk",
+  PARKING = "Parking",
+  GIFT_CARD = "Gift Card",
+  WAITLIST = "Waitlist",
+  DELIVERY = "Delivery",
+  ORDER = "Order",
+  TAKEOUT = "Takeout",
+  PICKUP = "Pickup",
+  RESERVE = "Reserve",
+  MENU = "Menu",
+  APPOINTMENT = "Appointment",
+  PORTFOLIO = "Portfolio",
+  QUOTE = "Quote",
+  SERVICES = "Services",
+  STORE_ORDERS = "Store Orders",
+  STORE_SHOP = "Store Shop",
+  STORE_SUPPORT = "Store Support",
+  SCHEDULE = "Schedule",
+  SHOWTIMES = "Showtimes",
+  AVAILABILITY = "Availability",
+  PRICING = "Pricing",
+}
+
+export interface AppleActionLinks {
+  category: Category;
+  appStoreUrl: string;
+  quickLinkUrl: string;
+  appName: string;
+}
+
+export interface ImageThumbnail {
+  url: string;
+  width: number;
+  height: number;
+}
+
+export interface Image {
+  url: string;
+  width: number;
+  height: number;
+  thumbnails?: ImageThumbnail[];
+  alternateText?: string;
+}
+
 export enum PickupAndDeliveryServices {
   IN_STORE_PICKUP = "In-Store Pickup",
   CURBSIDE_PICKUP = "Curbside Pickup",
@@ -47,20 +99,6 @@ export interface Address {
   postalCode?: string;
   extraDescription?: string;
   countryCode?: string;
-}
-
-export interface ImageThumbnail {
-  url: string;
-  width: number;
-  height: number;
-}
-
-export interface Image {
-  url: string;
-  width: number;
-  height: number;
-  thumbnails?: ImageThumbnail[];
-  alternateText?: string;
 }
 
 export interface ComplexImage {
@@ -246,14 +284,22 @@ export interface ComplexVideo {
   description?: string;
 }
 
-export interface Location {
+export default interface Location {
   accessHours?: Hours;
+  appleActionLinks?: AppleActionLinks[];
+  appleBusinessDescription?: string;
+  appleBusinessId?: string;
+  appleBusinessIdDqe?: string;
+  appleCompanyId?: string;
+  appleCompanyIdDqe?: string;
+  appleCoverPhoto?: Image;
   bingWebsiteOverride?: string;
   blackOwnedBusiness?: boolean;
   brunchHours?: Hours;
   covid19InformationUrl?: string;
   covidMessaging?: string;
   deliveryHours?: Hours;
+  deliveryUrl?: string;
   dineInHours?: Hours;
   driveThroughHours?: Hours;
   facebookWebsiteOverride?: string;
@@ -292,6 +338,7 @@ export interface Location {
   categories?: any;
   cityCoordinate?: Coordinate;
   closed?: boolean;
+  c_advisorIntents?: EntityReference[];
   c_advisorName?: string;
   c_averageRating?: number;
   c_clientFocuses?: string[];

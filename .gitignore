@@ -5,5 +5,5 @@ dist/
 .yext
 .artifact-output
 sites-config/features.json
-
+*.history/
 .DS_Store

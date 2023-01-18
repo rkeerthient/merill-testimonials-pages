@@ -130,7 +130,7 @@ const AdvisorCollectPage: Template<TemplateRenderProps> = ({
                     className="mr-4 items-center h-6"
                   />
                   <div className="leading-6 text-lg justify-center link-color text-lg font-bold">
-                    FINRA's Brokercheck
+                    FINRA&rsquo;s Brokercheck
                   </div>
                 </div>
                 <div className="flex  flex-start mb-4">

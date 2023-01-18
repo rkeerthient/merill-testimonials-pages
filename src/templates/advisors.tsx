@@ -12,6 +12,7 @@ import ReviewGenForm from "../components/ReviewGenForm";
 import Stars from "../components/Stars";
 import "../index.css";
 import ExpandableFilter from "../components/ExpandableFilter";
+import { useState } from "react";
 
 export const config = {
   stream: {
@@ -45,6 +46,18 @@ export const config = {
       "c_testimonials.c_currentClient",
       "c_testimonials.c_compensationDetails",
       "c_testimonials.c_conflictDetails",
+      "c_advisorIntents.primaryPhoto",
+      "c_advisorIntents.richTextDescription",
+      "c_advisorIntents.shortDescription",
+      "c_advisorIntents.description",
+      "c_advisorIntents.name",
+      "c_advisorIntents.c_advisor",
+      "c_advisorIntents.c_servicesTitle",
+      "c_advisorIntents.c_specialtyList",
+      "c_advisorIntents.photoGallery",
+      "c_advisorIntents.headshot",
+      "c_advisorIntents.mainPhone",
+      "c_advisorIntents.services",
     ],
     filter: {
       entityTypes: ["location"],
@@ -90,7 +103,9 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
     c_clientFocuses,
     c_language,
     c_licensesAndCertifications,
+    c_advisorIntents,
   } = document;
+  const [openTab, setOpenTab] = useState(0);
 
   const AdditionDetails = (
     <div>
@@ -159,7 +174,7 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
               </div>
 
               <div
-                className="flex justify-between mt-8"
+                className="flex justify-between mt-8 pb-8"
                 style={{ borderBottom: ".0625rem solid #80a8ea" }}
               >
                 <div className="mr-4" style={{ flexBasis: "33.33333%" }}>
@@ -209,8 +224,62 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
                     )}
                 </div>
               </div>
+              {c_advisorIntents && (
+                <div
+                  className="px-8"
+                  style={{
+                    borderBottom: ".0625rem solid #80a8ea",
+                    borderTop: ".0625rem solid #80a8ea",
+                  }}
+                >
+                  <div className=" mt-10 mb-10 ">
+                    <div className="text-3xl font-light mx-auto text-center headColor">
+                      Services
+                    </div>
+                    <div className="border mt-4">
+                      <ul className="flex flex-wrap text-center border-b border-gray-200 bg-gray-200">
+                        {c_advisorIntents.map((item: any, index: any) => {
+                          return (
+                            <li key={index} className="mr-2">
+                              <a
+                                onClick={() => setOpenTab(index)}
+                                className={`${
+                                  openTab === index
+                                    ? "inline-block p-4 active cursor-pointer	bg-gray-300"
+                                    : "inline-block p-4 active cursor-pointer	"
+                                }`}
+                              >
+                                {item.name}
+                              </a>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                      <div className=" mt-6 bg-white p-4">
+                        {c_advisorIntents.map((item: any, index: any) => {
+                          return (
+                            <div
+                              key={index}
+                              className={openTab === index ? "block" : "hidden"}
+                            >
+                              <div>
+                                {item.richTextDescription.substring(1, 200)}
+                                {item.richTextDescription.length > 200 && "..."}
+                              </div>
+
+                              <button className="mt-4 hover:text-blue-400 hover:border-b border-blue-400">
+                                Learn more
+                              </button>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
               <div className="mb-10">
-                <div className=" mt-10 mb-10">
+                <div className=" mt-10 mb-10 ">
                   <div className="text-3xl leading-3 font-light mx-auto text-center headColor">
                     Testimonials
                   </div>
@@ -293,7 +362,7 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
                     className="mr-4 items-center h-6"
                   />
                   <div className="leading-6 text-lg justify-center link-color text-lg font-bold">
-                    FINRA's Brokercheck
+                    FINRA&lsquo;s Brokercheck
                   </div>
                 </div>
                 <div className="flex  flex-start mb-4">

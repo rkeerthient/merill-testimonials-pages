@@ -9,7 +9,7 @@ export enum C_status {
 	LIVE = "Live",
 }
 
-export interface Ce_testimonial {
+export default interface Ce_testimonial {
 	name: string,
 	c_additionalDisclosures?: string,
 	c_author?: string,
