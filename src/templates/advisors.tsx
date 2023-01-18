@@ -58,6 +58,7 @@ export const config = {
       "c_advisorIntents.headshot",
       "c_advisorIntents.mainPhone",
       "c_advisorIntents.services",
+      "c_advisorIntents.id",
     ],
     filter: {
       entityTypes: ["location"],
@@ -106,6 +107,7 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
     c_advisorIntents,
   } = document;
   const [openTab, setOpenTab] = useState(0);
+  console.log(JSON.stringify(c_advisorIntents));
 
   const AdditionDetails = (
     <div>
@@ -120,29 +122,29 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
     <>
       <div className="w-full ">
         <div style={{ backgroundColor: "#012169" }}>
-          <div className="px-4 mx-auto" style={{ width: "73.125rem" }}>
+          <div className="px-4 mx-auto w-full md:w-3/4">
             <div
-              className="flex justify-between  mt-12 mb-20 text-white"
+              className="flex flex-col md:flex-row justify-between  mt-12 mb-20 text-white"
               style={{ minHeight: "20.625rem" }}
             >
               <div className="flex my-auto">
-                <div className="Hero-details">
-                  <h1 className="Hero-nameWrapper flex mb-10 items-baseline">
-                    <span className="text-6xl leading-3 font-light">
+                <div className="Hero-details pt-16 md:pt-0">
+                  <h1 className="Hero-nameWrapper flex mb-4 md:mb-10 items-baseline">
+                    <span className="text-3xl md:text-6xl leading-3 font-light">
                       Victor Montas,
                     </span>
                     <span className="flex justify-end items-end ml-2">
                       <div className="Hero-cert ml-1">CPFA &#174; </div>
                     </span>
                   </h1>
-                  <div className="leading-5 text-lg text-white">
+                  <div className="leading-2 md:leading-5 text-lg text-white">
                     Senior Financial Advisor
                   </div>
                 </div>
               </div>
-              <div className="ml-24 flex overflow-visible h-80 ">
+              <div className="md:ml-24 flex overflow-visible h-80 ">
                 <img
-                  className="relative w-auto h-96 max-w-full max-h-full top-24"
+                  className="left-1/2 md:left-0 -translate-x-2/4 md:-translate-x-0	relative w-auto h-72 md:h-96 max-w-none md:max-w-full md:max-h-full top-24"
                   src="//dynl.mktgcdn.com/p/U9_5Fh_UxMCeFOys8HpqD7d0BZC1nzcFamUTx-m9chM/200x200.jpg"
                   alt="Advisor Headshot"
                 />
@@ -156,8 +158,8 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
           </div>
         </div>
         <div className="w-full mt-10">
-          <div className="w-3/4	mx-auto px-4 flex">
-            <div style={{ flexBasis: "75%" }}>
+          <div className="w-full md:w-3/4	mx-auto px-4 flex">
+            <div className="md:basis-3/4">
               <div
                 className="pb-10"
                 style={{ borderBottom: ".0625rem solid #80a8ea" }}
@@ -174,10 +176,10 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
               </div>
 
               <div
-                className="flex justify-between mt-8 pb-8"
+                className="flex flex-col md:flex-row justify-between mt-8 pb-8"
                 style={{ borderBottom: ".0625rem solid #80a8ea" }}
               >
-                <div className="mr-4" style={{ flexBasis: "33.33333%" }}>
+                <div className="mr-4">
                   {
                     <div className="mb-3.5">
                       <h2 className="mb-3.5 text-2xl leading-5	 font-light headColor">
@@ -203,7 +205,7 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
                     <div>Spanish</div>
                   </div>
                 </div>
-                <div className="mr-4" style={{ flexBasis: "33.33333%" }}>
+                <div className="mr-4">
                   <h2 className="mb-3.5 text-2xl leading-5	 font-light headColor">
                     Client Focuses
                   </h2>
@@ -212,7 +214,7 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
                       <div key={index}>{item}</div>
                     ))}
                 </div>
-                <div style={{ flexBasis: "33.33333%" }}>
+                <div>
                   <h2 className="mb-3.5 text-2xl leading-7 font-light headColor">
                     Licenses and Certifications
                   </h2>
@@ -240,13 +242,16 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
                       <ul className="flex flex-wrap text-center border-b border-gray-200 bg-gray-200">
                         {c_advisorIntents.map((item: any, index: any) => {
                           return (
-                            <li key={index} className="mr-2">
+                            <li
+                              key={index}
+                              className="w-full md:w-auto md:mr-2"
+                            >
                               <a
                                 onClick={() => setOpenTab(index)}
                                 className={`${
                                   openTab === index
-                                    ? "inline-block p-4 active cursor-pointer	bg-gray-300"
-                                    : "inline-block p-4 active cursor-pointer	"
+                                    ? "w-full md:w-auto inline-block p-4 active cursor-pointer	bg-gray-300"
+                                    : "w-full md:w-auto inline-block p-4 active cursor-pointer	"
                                 }`}
                               >
                                 {item.name}
@@ -262,14 +267,17 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
                               key={index}
                               className={openTab === index ? "block" : "hidden"}
                             >
-                              <div>
+                              <div className="mb-8">
                                 {item.richTextDescription.substring(1, 200)}
                                 {item.richTextDescription.length > 200 && "..."}
                               </div>
 
-                              <button className="mt-4 hover:text-blue-400 hover:border-b border-blue-400">
+                              <a
+                                href={`/intentTemplate/${item.id}`}
+                                className=" hover:text-blue-400 hover:border-b border-blue-400"
+                              >
                                 Learn more
-                              </button>
+                              </a>
                             </div>
                           );
                         })}
@@ -341,7 +349,7 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
             </div>
 
             <div
-              className=" mt-16 ml-16 mb-16"
+              className=" mt-16 ml-16 mb-16 hidden md:block"
               style={{ flexBasis: "25%", color: "#0052c2" }}
             >
               <div className="leading-10 ">
