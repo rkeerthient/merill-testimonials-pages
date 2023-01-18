@@ -272,7 +272,7 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
                               </div>
 
                               <a
-                                href={`/intentTemplate/${item.id}`}
+                                href={`/${item.id}`}
                                 className=" hover:text-blue-400 hover:border-b border-blue-400"
                               >
                                 Learn more
