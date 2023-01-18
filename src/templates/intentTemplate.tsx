@@ -79,6 +79,12 @@ const IntentPage: Template<TemplateRenderProps> = ({
   return (
     <>
       <div className="w-full ">
+        <span className="block md:hidden">
+          <img src="https://i.imgur.com/MxloIot.png" alt="" />
+        </span>
+        <span className="md:block hidden">
+          <img src="https://i.imgur.com/T2pJNvV.png" alt="" />
+        </span>
         <div style={{ backgroundColor: "#012169" }}>
           <div className="px-4 mx-auto w-full md:w-3/4">
             <div
