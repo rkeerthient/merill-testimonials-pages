@@ -272,7 +272,7 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
                               </div>
 
                               <a
-                                href={`/${item.id}`}
+                                href={`/${item.id.toLowerCase()}`}
                                 className=" hover:text-blue-400 hover:border-b border-blue-400"
                               >
                                 Learn more
