@@ -54,7 +54,7 @@ const Carousel = (props: any) => {
                 >
                   {item.name}
                 </div>
-                <div className="px-6" style={{ height: "200px" }}>
+                <div className="px-6" style={{ height: "230px" }}>
                   <div className="mt-2">
                     <div>{item.description}</div>
                   </div>
