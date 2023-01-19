@@ -314,7 +314,10 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
                       Services
                     </div>
                     <div className="border mt-4">
-                      <ul className="flex flex-wrap text-center border-b border-gray-200 bg-gray-200">
+                      <ul
+                        className="flex flex-wrap text-center border-b"
+                        style={{ backgroundColor: "#022169" }}
+                      >
                         {c_advisorIntents.map((item: any, index: any) => {
                           return (
                             <li
@@ -325,8 +328,8 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
                                 onClick={() => setOpenTab(index)}
                                 className={`${
                                   openTab === index
-                                    ? "w-full md:w-auto inline-block p-4 active cursor-pointer	bg-gray-300"
-                                    : "w-full md:w-auto inline-block p-4 active cursor-pointer	"
+                                    ? "w-full md:w-auto inline-block p-4 active cursor-pointer bg-blue-400 text-white"
+                                    : "w-full md:w-auto inline-block p-4 active cursor-pointer	text-white"
                                 }`}
                               >
                                 {item.name}
@@ -349,7 +352,8 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
 
                               <a
                                 href={`/${item.id.toLowerCase()}`}
-                                className=" hover:text-blue-400 hover:border-b border-blue-400"
+                                className=" hover:border-b"
+                                style={{ color: "#0052c2" }}
                               >
                                 Learn more
                               </a>
