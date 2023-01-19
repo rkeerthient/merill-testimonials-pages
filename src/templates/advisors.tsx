@@ -129,7 +129,6 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
       </a>
     </div>
   );
-  console.log(JSON.stringify(document));
 
   return (
     <>
@@ -424,8 +423,8 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
           </div>
         </div>
         <div className="w-full p-8" style={{ backgroundColor: "#012169" }}>
-          <div className="px-14 py-8 max-w-screen-xl flex mx-auto text-white">
-            <div className="w-1/2 text-xl my-auto">
+          <div className="px-14 py-8 max-w-screen-xl flex flex-col md:flex-row gap-8 md:gap-0 mx-auto text-white">
+            <div className="md:w-1/2 text-xl my-auto">
               Victor Montas is based out of <b>Bridgewater, New Jersey,</b> but
               is licensed in the following states: Colorado, District Of
               Columbia, Florida, New Jersey, and New York.
@@ -439,7 +438,7 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
         </div>
         <div className="w-full    ">
           <div className="  px-14 py-8 max-w-screen-xl mx-auto">
-            <div className="flex flex-row justify-between">
+            <div className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between">
               <div>
                 <div>
                   <h2 className="mb-3.5 text-2xl leading-7  headColor">
@@ -478,7 +477,7 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
           </div>
         </div>
         <div className="w-full p-8 bg-gray-100">
-          <div className="px-14 py-8 max-w-screen-xl mx-auto ">
+          <div className="px-4 md:px-14 py-8 max-w-screen-xl mx-auto ">
             <h2 className="mb-8 text-4xl leading-7  headColor">
               More About Victor
             </h2>

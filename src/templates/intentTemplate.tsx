@@ -23,11 +23,11 @@ export const config = {
       "shortDescription",
       "description",
       "name",
-      // "c_advisor.photoGallery",
-      // "c_advisor.c_organizations",
-      // "c_advisor.c_volunteerExperience",
-      // "c_advisor.c_moreAbout",
-      // "c_advisor.photoGallery",
+      "c_advisor.photoGallery",
+      "c_advisor.c_organizations",
+      "c_advisor.c_volunteerExperience",
+      "c_advisor.c_moreAbout",
+      "c_advisor.c_hobbiesAndInterests",
       "c_servicesTitle",
       "c_specialtyList",
       "photoGallery",
@@ -70,7 +70,7 @@ const IntentPage: Template<TemplateRenderProps> = ({
     shortDescription,
     description,
     name,
-    // c_advisor,
+    c_advisor,
     c_servicesTitle,
     c_specialtyList,
     photoGallery,
@@ -80,7 +80,6 @@ const IntentPage: Template<TemplateRenderProps> = ({
     slug,
     id,
   } = document;
-  // console.log(c_advisor);
 
   return (
     <>
@@ -205,30 +204,30 @@ const IntentPage: Template<TemplateRenderProps> = ({
             <Carousel data={document} slidesToShow={3} />
           </div>
         </div>
-        {/* <div className="w-full p-8" style={{ backgroundColor: "#012169" }}>
-          <div className="px-14 py-8 max-w-screen-xl flex mx-auto text-white">
-            <div className="w-1/2 text-xl my-auto">
+        <div className="w-full p-8" style={{ backgroundColor: "#012169" }}>
+          <div className="px-14 py-8 max-w-screen-xl flex flex-col md:flex-row gap-6 md:gap-0 mx-auto text-white">
+            <div className="m-full md:w-1/2 text-xl my-auto">
               Victor Montas is based out of <b>Bridgewater, New Jersey,</b> but
               is licensed in the following states: Colorado, District Of
               Columbia, Florida, New Jersey, and New York.
             </div>
-            {c_advisor.photoGallery && (
+            {c_advisor[0].photoGallery && (
               <div>
-                <Image image={c_advisor.photoGallery[0]}></Image>
+                <Image image={c_advisor[0].photoGallery[0]}></Image>
               </div>
             )}
           </div>
         </div>
         <div className="w-full    ">
           <div className="  px-14 py-8 max-w-screen-xl mx-auto">
-            <div className="flex flex-row justify-between">
+            <div className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between">
               <div>
                 <div>
                   <h2 className="mb-3.5 text-2xl leading-7  headColor">
                     Organizations
                   </h2>
-                  {c_advisor.c_organizations &&
-                    c_advisor.c_organizations.map(
+                  {c_advisor[0].c_organizations &&
+                    c_advisor[0].c_organizations.map(
                       (item: any, index: number) => (
                         <div className="text-lg	" key={index}>
                           {item}
@@ -243,7 +242,7 @@ const IntentPage: Template<TemplateRenderProps> = ({
                     Volunteer Experience
                   </h2>
                   <div className="text-lg	">
-                    {c_advisor.c_volunteerExperience}
+                    {c_advisor[0].c_volunteerExperience}
                   </div>
                 </div>
               </div>
@@ -252,8 +251,8 @@ const IntentPage: Template<TemplateRenderProps> = ({
                   <h2 className="mb-3.5 text-2xl leading-7  headColor">
                     Hobbies and Experience
                   </h2>
-                  {c_advisor.c_hobbiesAndInterests &&
-                    c_advisor.c_hobbiesAndInterests.map(
+                  {c_advisor[0].c_hobbiesAndInterests &&
+                    c_advisor[0].c_hobbiesAndInterests.map(
                       (item: any, index: number) => (
                         <div className="text-lg	" key={index}>
                           {item}
@@ -266,13 +265,13 @@ const IntentPage: Template<TemplateRenderProps> = ({
           </div>
         </div>
         <div className="w-full p-8 bg-gray-100">
-          <div className="px-14 py-8 max-w-screen-xl mx-auto ">
+          <div className="px-4 md:px-14 py-8 max-w-screen-xl mx-auto ">
             <h2 className="mb-8 text-4xl leading-7  headColor">
               More About Victor
             </h2>
-            <div className="text-lg	">{c_advisor.c_moreAbout}</div>
+            <div className="text-lg	">{c_advisor[0].c_moreAbout}</div>
           </div>
-        </div> */}
+        </div>
         <img
           src="https://i.imgur.com/a6ZPyA6.png"
           alt=""
