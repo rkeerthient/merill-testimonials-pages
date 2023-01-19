@@ -20,11 +20,17 @@
 
 .headColor {
   color: #012169;
+  @apply font-light;
+}
+
+.rtd h1 {
+  color: #012169;
+  @apply text-lg;
 }
 
 .slick-prev::before,
 .slick-next::before {
-  color: rgb(161, 0, 107) !important;
+  color: #012169 !important;
   font-size: 2rem !important;
 }
 
@@ -69,4 +75,14 @@
     right: 2% !important;
     z-index: 1;
   }
+}
+
+.rtd ul {
+  list-style: initial;
+  margin: initial;
+  padding: 0 0 0 40px;
+}
+
+.rtd li {
+  display: list-item;
 }

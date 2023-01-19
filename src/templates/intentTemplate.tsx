@@ -12,6 +12,7 @@ import ReviewGenForm from "../components/ReviewGenForm";
 import "../index.css";
 import MarkdownView from "react-showdown";
 import Carousel from "../components/Carousel";
+import { Image } from "@yext/pages/components";
 
 export const config = {
   stream: {
@@ -22,7 +23,11 @@ export const config = {
       "shortDescription",
       "description",
       "name",
-      "c_advisor",
+      // "c_advisor.photoGallery",
+      // "c_advisor.c_organizations",
+      // "c_advisor.c_volunteerExperience",
+      // "c_advisor.c_moreAbout",
+      // "c_advisor.photoGallery",
       "c_servicesTitle",
       "c_specialtyList",
       "photoGallery",
@@ -65,7 +70,7 @@ const IntentPage: Template<TemplateRenderProps> = ({
     shortDescription,
     description,
     name,
-    c_advisor,
+    // c_advisor,
     c_servicesTitle,
     c_specialtyList,
     photoGallery,
@@ -75,6 +80,7 @@ const IntentPage: Template<TemplateRenderProps> = ({
     slug,
     id,
   } = document;
+  // console.log(c_advisor);
 
   return (
     <>
@@ -128,8 +134,8 @@ const IntentPage: Template<TemplateRenderProps> = ({
                 className="pb-10"
                 style={{ borderBottom: ".0625rem solid #80a8ea" }}
               >
-                <h1 className="text-2xl font-bold">{name}</h1>
-                <div className="text-xl font-light w-full md:w-3/4 mt-4">
+                <h1 className="mb-3.5 text-2xl leading-7  headColor">{name}</h1>
+                <div className="text-xl font-light w-full mt-4 rtd">
                   <MarkdownView
                     markdown={richTextDescription}
                     options={{ tables: true, emoji: true }}
@@ -138,7 +144,7 @@ const IntentPage: Template<TemplateRenderProps> = ({
               </div>
             </div>
             <div
-              className=" mt-16 ml-16 mb-16 basis-1/4 hidden md:visible"
+              className=" mt-16 ml-16 mb-16 basis-1/4 hidden md:block"
               style={{ color: "#0052c2" }}
             >
               <div className="leading-10 ">
@@ -199,21 +205,74 @@ const IntentPage: Template<TemplateRenderProps> = ({
             <Carousel data={document} slidesToShow={3} />
           </div>
         </div>
-        <img
-          src="https://i.imgur.com/cQvSgnb.png"
-          alt=""
-          style={{ width: "100%" }}
-        />
-        <img
-          src="https://i.imgur.com/jbkx6dq.png"
-          alt=""
-          style={{ width: "100%" }}
-        />
-        <img
-          src="https://i.imgur.com/pqBY21J.png"
-          alt=""
-          style={{ width: "100%" }}
-        />
+        {/* <div className="w-full p-8" style={{ backgroundColor: "#012169" }}>
+          <div className="px-14 py-8 max-w-screen-xl flex mx-auto text-white">
+            <div className="w-1/2 text-xl my-auto">
+              Victor Montas is based out of <b>Bridgewater, New Jersey,</b> but
+              is licensed in the following states: Colorado, District Of
+              Columbia, Florida, New Jersey, and New York.
+            </div>
+            {c_advisor.photoGallery && (
+              <div>
+                <Image image={c_advisor.photoGallery[0]}></Image>
+              </div>
+            )}
+          </div>
+        </div>
+        <div className="w-full    ">
+          <div className="  px-14 py-8 max-w-screen-xl mx-auto">
+            <div className="flex flex-row justify-between">
+              <div>
+                <div>
+                  <h2 className="mb-3.5 text-2xl leading-7  headColor">
+                    Organizations
+                  </h2>
+                  {c_advisor.c_organizations &&
+                    c_advisor.c_organizations.map(
+                      (item: any, index: number) => (
+                        <div className="text-lg	" key={index}>
+                          {item}
+                        </div>
+                      )
+                    )}
+                </div>
+              </div>
+              <div>
+                <div>
+                  <h2 className="mb-3.5 text-2xl leading-7  headColor">
+                    Volunteer Experience
+                  </h2>
+                  <div className="text-lg	">
+                    {c_advisor.c_volunteerExperience}
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <h2 className="mb-3.5 text-2xl leading-7  headColor">
+                    Hobbies and Experience
+                  </h2>
+                  {c_advisor.c_hobbiesAndInterests &&
+                    c_advisor.c_hobbiesAndInterests.map(
+                      (item: any, index: number) => (
+                        <div className="text-lg	" key={index}>
+                          {item}
+                        </div>
+                      )
+                    )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="w-full p-8 bg-gray-100">
+          <div className="px-14 py-8 max-w-screen-xl mx-auto ">
+            <h2 className="mb-8 text-4xl leading-7  headColor">
+              More About Victor
+            </h2>
+            <div className="text-lg	">{c_advisor.c_moreAbout}</div>
+          </div>
+        </div> */}
         <img
           src="https://i.imgur.com/a6ZPyA6.png"
           alt=""

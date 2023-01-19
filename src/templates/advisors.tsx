@@ -13,6 +13,7 @@ import Stars from "../components/Stars";
 import "../index.css";
 import ExpandableFilter from "../components/ExpandableFilter";
 import { useState } from "react";
+import { Image } from "@yext/pages/components";
 
 export const config = {
   stream: {
@@ -21,18 +22,24 @@ export const config = {
       "id",
       "uid",
       "name",
+      "c_moreAbout",
       "address",
       "c_advisorName",
       "c_averageRating",
       "c_numberOfReviews",
       "slug",
+      "c_hobbiesAndInterests",
+      "c_organizations",
+      "c_volunteerExperience",
       "description",
       "c_reviewCollectionSlug",
       "ref_reviewsAgg.averageRating",
+      "photoGallery",
       "c_headshot",
       "c_clientFocuses",
       "c_language",
       "c_experience",
+      "shortDescription",
       "c_licensesAndCertifications",
       "c_testimonials.id",
       "c_testimonials.c_author",
@@ -105,6 +112,12 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
     c_language,
     c_licensesAndCertifications,
     c_advisorIntents,
+    shortDescription,
+    c_hobbiesAndInterests,
+    c_organizations,
+    c_volunteerExperience,
+    c_moreAbout,
+    photoGallery,
   } = document;
   const [openTab, setOpenTab] = useState(0);
 
@@ -116,6 +129,7 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
       </a>
     </div>
   );
+  console.log(JSON.stringify(document));
 
   return (
     <>
@@ -169,15 +183,7 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
                 className="pb-10"
                 style={{ borderBottom: ".0625rem solid #80a8ea" }}
               >
-                <div className="text-2xl  font-light">
-                  My team and I work closely with clients to listen to their
-                  wealth planning needs and present the appropriate solutions
-                  available on our robust platform to address those needs. I am
-                  committed to using my experience, effort and resources to
-                  assist clients in pursuit of their business and personal
-                  financial goals. I am motivated on a daily basis to help
-                  clients on their constant drive to grow.
-                </div>
+                <div className="text-2xl  font-light">{description}</div>
               </div>
 
               <div
@@ -186,111 +192,56 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
               >
                 <div className="mr-4">
                   {
-                    <div className="mb-3.5">
-                      <h2 className="mb-3.5 text-2xl leading-5	 font-light headColor">
+                    <div className="mb-3.5  leading-7">
+                      <h2 className="mb-3.5 text-2xl   headColor">
                         Experience
                       </h2>
-                      <div>{c_experience && c_experience}</div>
+                      <div className="text-lg	">
+                        {c_experience && c_experience}
+                      </div>
                     </div>
                   }
-                  <div className="mb-3.5">
-                    <h2 className="mb-3.5 text-2xl leading-5	 font-light headColor">
-                      Degree
-                    </h2>
+                  <div className="mb-3.5  leading-7">
+                    <h2 className="mb-3.5 text-2xl    headColor">Degree</h2>
                     {c_language &&
                       c_language.map((item: any, index: number) => (
-                        <div key={index}>{item}</div>
+                        <div className="text-lg	" key={index}>
+                          {item}
+                        </div>
                       ))}
                   </div>
-                  <div className="mb-3.5">
-                    <h2 className="mb-3.5 text-2xl leading-5	 font-light headColor">
-                      Languages
-                    </h2>
-                    <div>English</div>
-                    <div>Spanish</div>
+                  <div className="mb-3.5  leading-7">
+                    <h2 className="mb-3.5 text-2xl   headColor">Languages</h2>
+                    <div className="text-lg	">English</div>
+                    <div className="text-lg	">Spanish</div>
                   </div>
                 </div>
-                <div className="mr-4">
-                  <h2 className="mb-3.5 text-2xl leading-5	 font-light headColor">
+                <div className="mr-4 leading-7">
+                  <h2 className="mb-3.5 text-2xl   headColor">
                     Client Focuses
                   </h2>
                   {c_clientFocuses &&
                     c_clientFocuses.map((item: any, index: number) => (
-                      <div key={index}>{item}</div>
+                      <div className="text-lg	" key={index}>
+                        {item}
+                      </div>
                     ))}
                 </div>
                 <div>
-                  <h2 className="mb-3.5 text-2xl leading-7 font-light headColor">
+                  <h2 className="mb-3.5 text-2xl leading-7   headColor">
                     Licenses and Certifications
                   </h2>
                   {c_licensesAndCertifications &&
                     c_licensesAndCertifications.map(
                       (item: any, index: number) => (
-                        <div key={index}>{item}</div>
+                        <div className="text-lg	" key={index}>
+                          {item}
+                        </div>
                       )
                     )}
                 </div>
               </div>
-              {c_advisorIntents && (
-                <div
-                  className="px-8"
-                  style={{
-                    borderBottom: ".0625rem solid #80a8ea",
-                    borderTop: ".0625rem solid #80a8ea",
-                  }}
-                >
-                  <div className=" mt-10 mb-10 ">
-                    <div className="text-3xl font-light mx-auto text-center headColor">
-                      Services
-                    </div>
-                    <div className="border mt-4">
-                      <ul className="flex flex-wrap text-center border-b border-gray-200 bg-gray-200">
-                        {c_advisorIntents.map((item: any, index: any) => {
-                          return (
-                            <li
-                              key={index}
-                              className="w-full md:w-auto md:mr-2"
-                            >
-                              <a
-                                onClick={() => setOpenTab(index)}
-                                className={`${
-                                  openTab === index
-                                    ? "w-full md:w-auto inline-block p-4 active cursor-pointer	bg-gray-300"
-                                    : "w-full md:w-auto inline-block p-4 active cursor-pointer	"
-                                }`}
-                              >
-                                {item.name}
-                              </a>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                      <div className=" mt-6 bg-white p-4">
-                        {c_advisorIntents.map((item: any, index: any) => {
-                          return (
-                            <div
-                              key={index}
-                              className={openTab === index ? "block" : "hidden"}
-                            >
-                              <div className="mb-8">
-                                {item.richTextDescription.substring(1, 200)}
-                                {item.richTextDescription.length > 200 && "..."}
-                              </div>
 
-                              <a
-                                href={`/${item.id.toLowerCase()}`}
-                                className=" hover:text-blue-400 hover:border-b border-blue-400"
-                              >
-                                Learn more
-                              </a>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
               <div className="mb-10">
                 <div className=" mt-10 mb-10 ">
                   <div className="text-3xl leading-3 font-light mx-auto text-center headColor">
@@ -351,6 +302,66 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
                     );
                   })}
               </div>
+              {c_advisorIntents && (
+                <div
+                  className="px-8"
+                  style={{
+                    borderBottom: ".0625rem solid #80a8ea",
+                    borderTop: ".0625rem solid #80a8ea",
+                  }}
+                >
+                  <div className=" mt-10 mb-10 ">
+                    <div className="text-3xl font-light mx-auto text-center headColor">
+                      Services
+                    </div>
+                    <div className="border mt-4">
+                      <ul className="flex flex-wrap text-center border-b border-gray-200 bg-gray-200">
+                        {c_advisorIntents.map((item: any, index: any) => {
+                          return (
+                            <li
+                              key={index}
+                              className="w-full md:w-auto md:mr-2"
+                            >
+                              <a
+                                onClick={() => setOpenTab(index)}
+                                className={`${
+                                  openTab === index
+                                    ? "w-full md:w-auto inline-block p-4 active cursor-pointer	bg-gray-300"
+                                    : "w-full md:w-auto inline-block p-4 active cursor-pointer	"
+                                }`}
+                              >
+                                {item.name}
+                              </a>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                      <div className=" mt-6 bg-white p-4">
+                        {c_advisorIntents.map((item: any, index: any) => {
+                          return (
+                            <div
+                              key={index}
+                              className={openTab === index ? "block" : "hidden"}
+                            >
+                              <div className="mb-8">
+                                {item.richTextDescription.substring(0, 200)}
+                                {item.richTextDescription.length > 200 && "..."}
+                              </div>
+
+                              <a
+                                href={`/${item.id.toLowerCase()}`}
+                                className=" hover:text-blue-400 hover:border-b border-blue-400"
+                              >
+                                Learn more
+                              </a>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
             <div
@@ -412,21 +423,69 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
             </div>
           </div>
         </div>
-        <img
-          src="https://i.imgur.com/cQvSgnb.png"
-          alt=""
-          style={{ width: "100%" }}
-        />
-        <img
-          src="https://i.imgur.com/jbkx6dq.png"
-          alt=""
-          style={{ width: "100%" }}
-        />
-        <img
-          src="https://i.imgur.com/pqBY21J.png"
-          alt=""
-          style={{ width: "100%" }}
-        />
+        <div className="w-full p-8" style={{ backgroundColor: "#012169" }}>
+          <div className="px-14 py-8 max-w-screen-xl flex mx-auto text-white">
+            <div className="w-1/2 text-xl my-auto">
+              Victor Montas is based out of <b>Bridgewater, New Jersey,</b> but
+              is licensed in the following states: Colorado, District Of
+              Columbia, Florida, New Jersey, and New York.
+            </div>
+            {photoGallery && (
+              <div>
+                <Image image={photoGallery[0]}></Image>
+              </div>
+            )}
+          </div>
+        </div>
+        <div className="w-full    ">
+          <div className="  px-14 py-8 max-w-screen-xl mx-auto">
+            <div className="flex flex-row justify-between">
+              <div>
+                <div>
+                  <h2 className="mb-3.5 text-2xl leading-7  headColor">
+                    Organizations
+                  </h2>
+                  {c_organizations &&
+                    c_organizations.map((item: any, index: number) => (
+                      <div className="text-lg	" key={index}>
+                        {item}
+                      </div>
+                    ))}
+                </div>
+              </div>
+              <div>
+                <div>
+                  <h2 className="mb-3.5 text-2xl leading-7  headColor">
+                    Volunteer Experience
+                  </h2>
+                  <div className="text-lg	">{c_volunteerExperience}</div>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <h2 className="mb-3.5 text-2xl leading-7  headColor">
+                    Hobbies and Experience
+                  </h2>
+                  {c_hobbiesAndInterests &&
+                    c_hobbiesAndInterests.map((item: any, index: number) => (
+                      <div className="text-lg	" key={index}>
+                        {item}
+                      </div>
+                    ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="w-full p-8 bg-gray-100">
+          <div className="px-14 py-8 max-w-screen-xl mx-auto ">
+            <h2 className="mb-8 text-4xl leading-7  headColor">
+              More About Victor
+            </h2>
+            <div className="text-lg	">{c_moreAbout}</div>
+          </div>
+        </div>
+
         <img
           src="https://i.imgur.com/a6ZPyA6.png"
           alt=""

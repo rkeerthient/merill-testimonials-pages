@@ -50,12 +50,12 @@ const Carousel = (props: any) => {
               <div key={index} className="border flex flex-row p-2">
                 <div
                   className="mb-4 flex text-center items-center justify-center text-xl font-bold"
-                  style={{ height: "200px" }}
+                  style={{ height: "200px", color: "#0052c2" }}
                 >
                   {item.name}
                 </div>
-                <div className="px-6" style={{ height: "230px" }}>
-                  <div className="mt-2">
+                <div className="px-6" style={{ height: "280px" }}>
+                  <div className="mt-2 text-lg font-light">
                     <div>{item.description}</div>
                   </div>
                 </div>
