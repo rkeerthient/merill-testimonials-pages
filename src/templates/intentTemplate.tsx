@@ -129,10 +129,7 @@ const IntentPage: Template<TemplateRenderProps> = ({
         <div className="w-full ">
           <div className="md:w-3/4	mx-auto px-4 flex">
             <div className="md:basis-3/4">
-              <div
-                className="pb-10"
-                style={{ borderBottom: ".0625rem solid #80a8ea" }}
-              >
+              <div className="pb-10">
                 <h1 className="mb-3.5 text-2xl leading-7  headColor">{name}</h1>
                 <div className="text-xl font-light w-full mt-4 rtd">
                   <MarkdownView
@@ -200,7 +197,10 @@ const IntentPage: Template<TemplateRenderProps> = ({
               </div>
             </div>
           </div>
-          <div className="mt-4 w-full md:w-3/4">
+          <div
+            className="mt-4 w-full pt-10"
+            style={{ borderTop: ".0625rem solid #80a8ea" }}
+          >
             <Carousel data={document} slidesToShow={3} />
           </div>
         </div>
