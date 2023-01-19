@@ -346,13 +346,12 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
                               className={openTab === index ? "block" : "hidden"}
                             >
                               <div className="mb-8">
-                                {item.richTextDescription.substring(0, 200)}
-                                {item.richTextDescription.length > 200 && "..."}
+                                {item.shortDescription}
                               </div>
 
                               <a
                                 href={`/${item.id.toLowerCase()}`}
-                                className=" hover:border-b"
+                                className=" hover:border-b font-bold"
                                 style={{ color: "#0052c2" }}
                               >
                                 Learn more
