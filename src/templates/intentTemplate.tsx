@@ -130,7 +130,7 @@ const IntentPage: Template<TemplateRenderProps> = ({
           <div className="md:w-3/4	mx-auto px-4 flex">
             <div className="md:basis-3/4">
               <div className="pb-10">
-                <h1 className="mb-3.5 text-2xl leading-7  headColor">{name}</h1>
+                <h1 className="mb-3.5 text-4xl leading-7  headColor">{name}</h1>
                 <div className="text-xl font-light w-full mt-4 rtd">
                   <MarkdownView
                     markdown={richTextDescription}
