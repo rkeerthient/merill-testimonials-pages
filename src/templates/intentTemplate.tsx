@@ -20,6 +20,7 @@ export const config = {
     fields: [
       "primaryPhoto",
       "richTextDescription",
+      "c_contentGenIntentDescription",
       "shortDescription",
       "description",
       "name",
@@ -71,6 +72,7 @@ const IntentPage: Template<TemplateRenderProps> = ({
     description,
     name,
     c_advisor,
+    c_contentGenIntentDescription,
     c_servicesTitle,
     c_specialtyList,
     photoGallery,
@@ -133,7 +135,7 @@ const IntentPage: Template<TemplateRenderProps> = ({
                 <h1 className="mb-3.5 text-4xl leading-7  headColor">{name}</h1>
                 <div className="text-xl font-light w-full mt-4 rtd">
                   <MarkdownView
-                    markdown={richTextDescription}
+                    markdown={c_contentGenIntentDescription}
                     options={{ tables: true, emoji: true }}
                   />
                 </div>
