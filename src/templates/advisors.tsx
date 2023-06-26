@@ -14,6 +14,7 @@ import "../index.css";
 import ExpandableFilter from "../components/ExpandableFilter";
 import { useState } from "react";
 import { Image } from "@yext/pages/components";
+import RTF from "../components/RTF";
 
 export const config = {
   stream: {
@@ -184,7 +185,9 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
                 className="pb-10"
                 style={{ borderBottom: ".0625rem solid #80a8ea" }}
               >
-                <div className="text-2xl  font-light">{c_contentGenBio}</div>
+                <div className="text-lg  font-light">
+                  <RTF>{c_contentGenBio}</RTF>
+                </div>
               </div>
 
               <div
