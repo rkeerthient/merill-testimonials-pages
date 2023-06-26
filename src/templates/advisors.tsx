@@ -39,6 +39,7 @@ export const config = {
       "c_clientFocuses",
       "c_language",
       "c_experience",
+      "c_contentGenBio",
       "shortDescription",
       "c_licensesAndCertifications",
       "c_testimonials.id",
@@ -118,6 +119,7 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
     c_volunteerExperience,
     c_moreAbout,
     photoGallery,
+    c_contentGenBio,
   } = document;
   const [openTab, setOpenTab] = useState(0);
 
@@ -182,7 +184,7 @@ const AdvisorPage: Template<TemplateRenderProps> = ({
                 className="pb-10"
                 style={{ borderBottom: ".0625rem solid #80a8ea" }}
               >
-                <div className="text-2xl  font-light">{description}</div>
+                <div className="text-2xl  font-light">{c_contentGenBio}</div>
               </div>
 
               <div
